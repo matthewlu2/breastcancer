@@ -3,3 +3,4 @@ hydralit==1.0.14
 hydralit-components==1.0.10
 pandas==2.0.2
 streamlit-analytics
+plotly
