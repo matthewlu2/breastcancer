@@ -38,8 +38,7 @@ tabs = [
     DATASET,
     CORRELATION,
     #USAGE,
-    CONTACT,
-  
+    CONTACT
 ]
 
 option_data = [
@@ -47,12 +46,11 @@ option_data = [
    {'icon': "📊", 'label':DATASET},
    {'icon': "↔️", 'label':CORRELATION}, 
   # {'icon': "📈", 'label':USAGE}, 
-   {'icon': "☎️", 'label':CONTACT}, 
- 
+   {'icon': "☎️", 'label':CONTACT}
 ]
 
 theme = {'txc_inactive': 'white','menu_background':'#ff94b6','txc_active':'black'}
-chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(True))
+chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(False))
 
 if chosen_tab ==HOME:
     home_page()
@@ -63,8 +61,8 @@ elif chosen_tab == DATASET:
 elif chosen_tab == CORRELATION:
     correlation_page()
 
-#elif chosen_tab == USAGE:
-    usage_page()
+# elif chosen_tab == USAGE:
+#     usage_page()
 
 elif chosen_tab == CONTACT:
     contact_page()
