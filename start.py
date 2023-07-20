@@ -4,6 +4,7 @@ from PIL import Image
 
 from home import home_page
 from datasets import datasets_page
+from correlation import correlation_page
 from usage import usage_page
 from contact import contact_page
 
@@ -27,25 +28,31 @@ st.markdown(f"""
 
 HOME = "Home"
 DATASET = "Datasets"
-USAGE = "Usage"
+CORRELATION = "Correlation With TAM Infiltration"
+#USAGE = "Usage"
 CONTACT = "Contact Us"
+
 
 tabs = [
     HOME,
     DATASET,
-    USAGE,
+    CORRELATION,
+    #USAGE,
     CONTACT,
+  
 ]
 
 option_data = [
    {'icon': "🏠", 'label':HOME},
    {'icon': "📊", 'label':DATASET},
-   {'icon': "📈", 'label':USAGE}, 
+   {'icon': "↔️", 'label':CORRELATION}, 
+  # {'icon': "📈", 'label':USAGE}, 
    {'icon': "☎️", 'label':CONTACT}, 
+ 
 ]
 
 theme = {'txc_inactive': 'white','menu_background':'#ff94b6','txc_active':'black'}
-chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(True))
+chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(False))
 
 if chosen_tab ==HOME:
     home_page()
@@ -53,8 +60,12 @@ if chosen_tab ==HOME:
 elif chosen_tab == DATASET:
     datasets_page()
 
-elif chosen_tab == USAGE:
+elif chosen_tab == CORRELATION:
+    correlation_page()
+
+#elif chosen_tab == USAGE:
     usage_page()
 
 elif chosen_tab == CONTACT:
     contact_page()
+

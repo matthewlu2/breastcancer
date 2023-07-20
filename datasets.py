@@ -24,6 +24,11 @@ def datasets_page():
         horizontal_orientation=True,
         )
  
+   IMG_REPO = 'https://raw.githubusercontent.com/matthewlu2/bc_data/main/6_FeaturePlot_AllGene/'
+   IMG_REPO2 = 'https://raw.githubusercontent.com/matthewlu2/bc_data/main/Violin_1/'
+   IMG_REPO3 = 'https://raw.githubusercontent.com/matthewlu2/bc_data/main/Violin_2/'
+
+   
    if page == 'Metadata':
 
       st.info("Information Here...")
@@ -43,5 +48,32 @@ def datasets_page():
       c.image(img3)
       d.image(img4)
       e.image(img5)
+
+      file = open('data/textfiles/long_list.txt', 'r')
+      list = file.read().splitlines()
+      print(len(list))
+
+      option = st.selectbox(
+      'Gene of Interest',
+      (list)) 
+
+      col1, col2 = st.columns(2, gap = "large")
+
+      front = 'OutFeatureplot_GSE176EGA6608_MergeSCTHarmony_'
+      front2 = 'OutVlnplot_GeneExpByCellType_'
+      img4 = f'{IMG_REPO}/{front}{option}.png'
+
+      if option[0] <= 'M':
+         img5 = f'{IMG_REPO2}/{front2}{option}.png'
+
+      else:
+          img5 = f'{IMG_REPO3}/{front2}{option}.png'
+
+     
+
+      col1.image(img4, caption = 'Feature Plot')
+      for i in range(2):
+         col2.write("")
+      col2.image(img5, caption = 'Violin Plot')
       
 
