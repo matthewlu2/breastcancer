@@ -50,7 +50,7 @@ option_data = [
 ]
 
 theme = {'txc_inactive': 'white','menu_background':'#ff94b6','txc_active':'black'}
-chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(False))
+chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(True))
 
 if chosen_tab ==HOME:
     home_page()
