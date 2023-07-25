@@ -15,7 +15,7 @@ st.set_page_config(
         initial_sidebar_state="expanded",
 )
 
-max_width_str = f"max-width: {80}%;"
+max_width_str = f"max-width: {85}%;"
 st.markdown(f"""
         <style>
         .appview-container .main .block-container{{{max_width_str}}}
@@ -50,7 +50,7 @@ option_data = [
 ]
 
 theme = {'txc_inactive': 'white','menu_background':'#ff94b6','txc_active':'black'}
-chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(True))
+chosen_tab = hc.nav_bar(menu_definition=option_data, override_theme = theme, use_animation= bool(True), hide_streamlit_markers= bool(False))
 
 if chosen_tab ==HOME:
     home_page()

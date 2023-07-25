@@ -16,7 +16,7 @@ font_fmt = {'font-class':'h2','font-size':'50%'}
 
 def datasets_page():
 
-   st.info("Information Here...")
+   st.info("We combined the pre-treatment and BRCA ER-positive single-cell RNA sequencing (scRNA-seq) datasets obtained from Wu et al. (PMID: 34493872) (n=14) and Bassez et al. (PMID: 33958794) (n=15) yielding 90,532 cells from 29 tumors. Our analysis highlighted the key players in the ER-positive TME, including tumor-associated macrophages (TAMs), epithelial cancer cells (ECCs), endothelial cells, and T cells.")
    page = hc.option_bar(
         option_definition=option_data,
         title='',
@@ -28,10 +28,69 @@ def datasets_page():
    IMG_REPO2 = 'https://raw.githubusercontent.com/matthewlu2/bc_data/main/Violin_1/'
    IMG_REPO3 = 'https://raw.githubusercontent.com/matthewlu2/bc_data/main/Violin_2/'
 
-   
    if page == 'Metadata':
 
-      st.info("Information Here...")
+      a, b, c, d, e= st.columns([5, 10, 10, 10, 10], gap = "medium")
+      a.markdown('##### No.')
+      b.markdown('##### GEO/EGA_Accession')
+      c.markdown('##### Number of total tumors')
+      d.markdown('##### Number of ER+ tumors')
+      e.markdown('##### Number of cells (ER+)')
+    
+      st.divider()
+
+      st.markdown("""
+      <style>
+      [role=radiogroup]{
+         gap: 1rem;
+      }
+      </style>
+      """,unsafe_allow_html=True)
+
+
+      
+
+      genre = a.radio(label = "", label_visibility= 'collapsed', options = ['1', '2'])
+
+     
+      st.markdown('##### Quality Control by Paper')
+
+      if genre == '1':
+         st.write("• Cells expressing <200 genes or <250 unique molecular identifiers (UMIs) were removed.")
+         st.write("• Normalisation, dimensionality reduction and clustering using default parameters.")     
+         st.markdown('##### Reference')
+         st.markdown(f'[{"A single-cell and spatially resolved atlas of human breast cancers"}](https://www.nature.com/articles/s41588-021-00911-1)') 
+         st.write("Wu et al. Nat. Genetics 2021")
+         st.markdown('##### Data Source')
+         st.markdown('https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE176078')  
+
+      else:
+         st.write("• All cells expressing <200 or >6,000 genes were removed, as well as cells that contained <400 (UMIs) and >15% mitochondrial counts.") 
+         st.write("• The default parameters of Seurat were used, unless mentioned otherwise.")
+         st.markdown('##### Reference')    
+         st.markdown(f'[{"A single-cell map of intratumoral changes during anti-PD1 treatment of patients with breast cancer"}](https://www.nature.com/articles/s41591-021-01323-8)') 
+         st.write("Bassez et al. Nat. Med. 2021")
+         st.markdown('##### Data Source')
+         st.markdown('https://lambrechtslab.sites.vib.be/en/single-cell')    
+      
+
+      b.write("GSE176078")
+      b.write("EGAD00001006608")
+
+
+      c.write("26")
+      c.write("31")
+
+      d.write("14")
+      d.write("15")
+
+      e.write("53,255")
+      e.write("41,120")  
+
+   
+
+
+     
      
    elif page == 'Visualization':
 
