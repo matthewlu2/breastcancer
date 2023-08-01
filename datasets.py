@@ -4,11 +4,7 @@ import pandas as pd
 from PIL import Image
 
 
-option_data = [
-   {'icon': "", 'label':i} for i in ['Metadata', 'Visualization']]
 
-over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'#ff94b6'}
-font_fmt = {'font-class':'h2','font-size':'50%'}
 
 # BACKGROUND_COLOR = 'white'
 # COLOR = 'black'
@@ -16,6 +12,15 @@ font_fmt = {'font-class':'h2','font-size':'50%'}
 
 def datasets_page():
 
+
+
+   option_data = [
+   {'icon': "", 'label':i} for i in ['Metadata', 'Visualization']]
+
+   over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'#ff94b6'}
+   font_fmt = {'font-class':'h2','font-size':'50%'}
+
+   
    st.info("We combined the pre-treatment and BRCA ER-positive single-cell RNA sequencing (scRNA-seq) datasets obtained from Wu et al. (PMID: 34493872) (n=14) and Bassez et al. (PMID: 33958794) (n=15) yielding 90,532 cells from 29 tumors. Our analysis highlighted the key players in the ER-positive TME, including tumor-associated macrophages (TAMs), epithelial cancer cells (ECCs), endothelial cells, and T cells.")
    page = hc.option_bar(
         option_definition=option_data,
