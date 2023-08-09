@@ -22,7 +22,7 @@ def correlation_2_page():
     over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'#ff94b6'}
     font_fmt = {'font-class':'h2','font-size':'50%'}
 
-    st.info("Information Here...")
+    st.info("Correlation between pathway activities inferred by PROGENy and gene expressions in TAM, CD8+ T cells, Endothelial cells, and Epithelial Cancer cells. The mean of the gene expression and pathway activities were calculated in each patient and the color of each dot represents the TAM proportion in individual patients. The correlation coefficient was calculated by Spearman method.")
 
     legend = "./data/Legend_MacrophageInfiltrationColor.png"
 

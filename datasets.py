@@ -15,7 +15,7 @@ def datasets_page():
 
 
    option_data = [
-   {'icon': "", 'label':i} for i in ['Metadata', 'Visualization']]
+   {'icon': "", 'label':i} for i in ['Metadata', 'Gene Expression in Different Cell Types', 'Cell Type Proportion and Tumor-Associated Macrophage']]
 
    over_theme = {'txc_inactive': 'black','menu_background':'white','txc_active':'white','option_active':'#ff94b6'}
    font_fmt = {'font-class':'h2','font-size':'50%'}
@@ -97,7 +97,7 @@ def datasets_page():
 
      
      
-   elif page == 'Visualization':
+   elif page == 'Gene Expression in Different Cell Types':
 
       a, b, c, d, e = st.columns(5)
 
@@ -139,5 +139,12 @@ def datasets_page():
       for i in range(2):
          col2.write("")
       col2.image(img5, caption = 'Violin Plot')
+
+
+   elif page == 'Cell Type Proportion and Tumor-Associated Macrophage':
+      a, b, c = st.columns([.25, .8, .1])
+      img = "./data/dataset_figures/image.png"
+      b.image(img)
+
       
 
